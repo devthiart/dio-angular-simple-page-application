@@ -1,0 +1,50 @@
+<h1>My Application</h1>
+<p *ngIf="false">card works!</p>
+<button>Hello World!</button>
+<h3>Products</h3>
+<ul>
+  <li *ngFor="let p of products; let i = index">
+    {{ i }} - {{ p }}
+    <button (click)="removeProduct(i)">Remove</button>
+  </li>
+</ul>
+
+<label>
+  Product Name:
+  <input
+    type="text"
+    value={{newProductName}}
+    (input)="newProductName = $any($event.target).value"
+  />
+</label>
+<button (click)="addToProducts()">Add</button>
+
+<div [ngSwitch]="menuType">
+  <div *ngSwitchDefault >
+    <ul>
+      <li>Editar Perfil</li>
+      <li>Adicionar Cartão</li>
+    </ul>
+  </div>
+  <div *ngSwitchCase="'user'" >
+    <ul>
+      <li>Editar Perfil</li>
+      <li>Adicionar Cartão</li>
+    </ul>
+  </div>
+  <div *ngSwitchCase="'admin'" >
+    <ul>
+      <li>Editar Perfil</li>
+      <li>Adicionar Cartão</li>
+      <li>Gerenciar Usuários</li>
+    </ul>
+  </div>
+  <div *ngSwitchCase="'superuser'" >
+    <ul>
+      <li>Editar Perfil</li>
+      <li>Adicionar Cartão</li>
+      <li>Gerenciar Usuários</li>
+      <li>Gerenciar admins</li>
+    </ul>
+  </div>
+</div>

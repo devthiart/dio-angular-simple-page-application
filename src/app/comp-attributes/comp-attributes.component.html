@@ -1,0 +1,36 @@
+<p [ngClass]="style">comp-attributes works!</p>
+<button (click)="changeStyle()">change style</button>
+<br />
+
+<h1 [ngStyle]="{ 'background-color': backgroundColor, 'color': fontColor }">Angular Course</h1>
+
+<h1>Shopping List - ngModel</h1>
+<p>Add Item:</p>
+<!-- For use ngModel you need to import 'FormsModule' in app.module.ts -->
+<input type="text" [(ngModel)]="item" />
+<button (click)="addList()">Add</button>
+<p>{{ item }}</p>
+<h3>List</h3>
+<ul>
+  <li *ngFor="let element of list; let i = index">{{ element }} <button (click)="removeList(i)">Remove</button></li>
+</ul>
+<hr />
+
+<h1>ngTemplate</h1>
+
+<ng-template [ngIf]="isEnableBlock">
+  <a href="#">Checkout</a>
+  <br />
+</ng-template>
+
+<ng-template [ngIf]="true">
+  <a href="#">Add to Cart</a>
+  <br />
+</ng-template>
+<hr />
+
+<!--Like react children-->
+<ng-content select="h2"></ng-content>
+<ng-content select="p"></ng-content>
+<hr />
+
